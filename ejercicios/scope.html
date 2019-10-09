@@ -1,0 +1,53 @@
+
+<html >
+    <head>
+        <title>Scope</title>
+    </head>
+
+    <body>
+        <a href="/ejercicios/">Go back</a>
+        <p><em>Abre la consola</em></p>
+   
+        <script>
+            //Global scope
+           /*  var message = "Hello platzi";
+
+            //scope de funciones (libreria de jquery)
+            var $ = function(message) {
+                console.log('Say:' + message);
+            } */
+
+            //function Scope
+
+            //sin eventualImprimeNumeros se muestra 10
+            //pero con eventual imprime todos por el scope de la variable
+            /* function imprimeNumeros(){
+                var i;
+                for( i = 0; i <= 10; i++){
+                    function eventualImprimeNumeros(n) {
+                        setTimeout(() => {
+                            console.log(n)
+                        },1000)
+                    }
+                    eventualImprimeNumeros(i)
+                }
+            }
+
+            imprimeNumeros(); */
+
+            //Block Scope
+            //cada vex que se ejcutan una iteracion con let, se crea un block nuevo.
+            function imprimeNumeros2(){
+                for( let i = 0; i <= 10; i++){
+                    setTimeout(() => {
+                        console.log(i)
+                    },1000)
+                }
+            }
+
+            imprimeNumeros2();
+
+
+        </script>
+     </body>
+</html>
