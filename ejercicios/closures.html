@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>Closures</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+        //closures
+        //printColor
+
+        //IIFE : Immediately-invoked function expressions
+        /* (function (){
+            let color = 'green';
+            function printColor(){
+                console.log(color);
+            }
+            printColor();
+        })
+ */
+        //Printcolor dentro de un iife
+
+
+        //funciones que regresan funciones
+        /* function makeColorPrinter(color){
+            let colorMessage = `The color is ${color}`;
+            return function () {
+                console.log(colorMessage);
+            }
+        }
+
+        let greenColorPrinter = makeColorPrinter("green");
+        console.log(greenColorPrinter());
+        
+        //variables privadas
+        const counter = {
+            count: 3
+        }; 
+        Yo no quiero que ese valor nadie lo pueda leer
+        */ 
+
+        function makeCounter(n){
+            let count = n;
+
+            return { //retorna un objeto
+                increase: function (){
+                    count = count + 1;
+                },
+                decrease: function (){
+                    count = count - 1;
+                },
+                getCount: function (){
+                    return count;
+                }
+            }
+        }
+
+        let counter = makeCounter(7)
+
+        console.log("The count increase is " + counter.getCount())
+        counter.increase();
+        console.log("The count decrease is " + counter.getCount())
+        counter.decrease();
+    </script>
+  </body>
+</html>
+      
