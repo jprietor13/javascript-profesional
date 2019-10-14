@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Prototype</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      /* //un objeto comun y corriente
+      const juan = {
+          name: "juan"
+      }
+      juan.saludar = function() {
+        console.log(`Hola yo soy ${this.name}`)
+      }
+      juan.saludar();
+
+      const maria = {
+          name: "Maria"
+      }
+
+      maria.saludar = function(){
+          console.log(`Hola!! yo soy ${this.name}`)
+      }
+
+      maria.saludar(); */
+
+
+      //seamos un poco mas eficientes
+   /* function personas (nombre){
+       const persona = {
+           nombrePersona : nombre
+       }
+       persona.saludar = function(){
+           console.log(`Hola, yo me llamo ${this.nombrePersona}`);
+       }
+       return persona;
+   }
+   const juan = personas("Juan"); // se contruye el metodo salidar cuando se le pasa el parametro a la funcion
+   juan.saludar(); */
+
+   //Aun podemos mejorar mas y evitar tener que crear la misma funcion cada vez
+    // const personasMetodos = {
+    //     saludar : function() {
+    //         console.log(`Me llamo ${this.nombre}`);
+    //     },
+    // };
+
+    // function personas (nombre){
+    //     const persona = {
+    //         nombre : nombre,
+    //     };
+    //     persona.saludar = personasMetodos.saludar;
+    //     return persona;
+    // };
+
+    // const juan = personas("Juan");
+    // juan.saludar();
+
+    //const nuevoObjeto = Object.create(nuevo) 
+    //recibira ub objeto y creara uno nuevo, nuevoObjeto recibira todas las propiedades que objeto tiene definido
+
+    // const personasMetodos = {
+    //     saludar : function() {
+    //         console.log(`Soy el objeto ${this.nombre}`);
+    //     },
+    // };
+
+    // function Personas(nombre){
+    //     const personas = Object.create(personasMetodos)
+    //     personas.nombre = nombre;
+    //     //todo lo que estaba en personasMetodos (propieades), pasaran a ser parte de personas
+    //     return personas;
+    // }
+
+    // const juan = Personas('Juan');
+    // juan.saludar();
+
+    //los metodos de personas dentro de personas
+    // const personasMetodos = {
+    //     saludar : function() {
+    //         console.log(`Soy el objeto ${this.nombre}`);
+    //     },
+    // };
+
+    // function Personas(nombre){
+    //     const personas = Object.create(Personas.prototype)
+    //     personas.nombre = nombre;
+    //     //todo lo que estaba en personasMetodos (propieades), pasaran a ser parte de personas
+    //     return personas;
+    // }
+
+    // Personas.prototype.saludar = function(){
+    //     console.log(`Soy el objeto prototype ${this.nombre}`);
+    // }
+
+    // const juan = Personas('Juan');
+    // juan.saludar();}
+
+    //new es un ataho (azucar sintactica) para llevar Hero.prototype al objeto
+    function Personas(nombre){ //este es el constructor
+        this.nombre= nombre;
+    }
+
+    Personas.prototype.saludar = function(){ //prototype saludar
+        console.log(`New ${this.nombre}`);
+    }
+
+    const juan = new Personas('Juan');
+    juan.saludar();
+    
+
+    </script>
+  </body>
+</html>
