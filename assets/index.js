@@ -5,7 +5,7 @@ const video = document.querySelector("video"); //query selector representa un se
 const button = document.querySelector("button");
 
 const player = new mediaPlayer({elemento: video, plugins: [
-   //new AutoPlay()
+   new AutoPlay()
    ]
 });
 
